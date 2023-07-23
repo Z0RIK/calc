@@ -14,15 +14,13 @@ int main()
 	Vector2 windowPosition = { 500, 200 };
 	Vector2 panOffset = mousePosition;
 	bool dragWindow = false;
-
-	SetWindowPosition(windowPosition.x, windowPosition.y);
-
 	bool exitWindow = false;
 
+	SetWindowPosition(windowPosition.x, windowPosition.y);
 	SetTargetFPS(60);
 
 	float variableA = 0.0f;
-	float variableB = -0.0f;
+	float variableB = 0.0f;
 	float result = 0.0f;
 	char operation[2];
 	operation[0] = '+';
