@@ -1346,6 +1346,8 @@ static bool CheckCollisionPointRec(Vector2 point, Rectangle rec);   // Check if 
 static const char *TextFormat(const char *text, ...);               // Formatting of text with variables to 'embed'
 static const char **TextSplit(const char *text, char delimiter, int *count);    // Split text into multiple strings
 static int TextToInteger(const char *text);         // Get integer value from text
+static float TextToFloat(const char* text);         // Get float value from text
+
 
 static int GetCodepointNext(const char *text, int *codepointSize);  // Get next codepoint in a UTF-8 encoded text
 static const char *CodepointToUTF8(int codepoint, int *byteSize);   // Encode codepoint into UTF-8 text (char array size returned as parameter)
@@ -5333,6 +5335,40 @@ static int TextToInteger(const char *text)
     for (int i = 0; ((text[i] >= '0') && (text[i] <= '9')); ++i) value = value*10 + (int)(text[i] - '0');
 
     return value*sign;
+}
+
+// Get float value from text
+float TextToFloat(const char* text)
+{
+    float value = 0.0f;
+    float floatingPoint = 0.0f;
+    int sign = 1;
+
+    if ((text[0] == '+') || (text[0] == '-'))
+    {
+        if (text[0] == '-') sign = -1;
+        text++;
+    }
+
+    for (int i = 0; (((text[i] >= '0') && (text[i] <= '9')) || text[i] == '.'); i++)
+    {
+        if (text[i] == '.')
+        {
+            if (floatingPoint > 0.0f) break;
+
+            floatingPoint = 10.0f;
+            continue;
+        }
+        if (floatingPoint > 0.0f)
+        {
+            value += (float)(text[i] - '0') / floatingPoint;
+            floatingPoint *= 10.0f;
+        }
+        else
+            value = value * 10.0f + (float)(text[i] - '0');
+    }
+
+    return value * sign;
 }
 
 // Encode codepoint into UTF-8 text (char array size returned as parameter)
