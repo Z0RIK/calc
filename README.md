@@ -4,7 +4,7 @@ This calculator app is a simple project created to test the custom functions `gu
 
 ## Update
 
-This app can now be found in examples folder of [raygui.h library](https://github.com/raysan5/raygui)
+This app can now be found in examples folder of [raygui.h](https://github.com/raysan5/raygui) library.
 
 ## Functionality
 
