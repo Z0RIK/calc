@@ -2,6 +2,10 @@
 
 This calculator app is a simple project created to test the custom functions `guiIntBox()` and `guiFloatBox()` that i added to [raygui.h](https://github.com/raysan5/raygui). The app provides a basic graphical user interface that allows users to perform addition, subtraction, multiplication, and division operations.
 
+## Update
+
+This app can now be found in examples folder of [raygui.h library](https://github.com/raysan5/raygui)
+
 ## Functionality
 
 - Addition: Enter two numbers and click the "+" button to get the result.
@@ -31,6 +35,3 @@ cmake -S ..
 cmake --build . 
 ```
 
-## Feedback and Contributions
-
-This project is intended as a testbed for the `guiIntBox()` and `guiFloatBox()` functions in the raygui open library. If you encounter any issues or have suggestions for improvement, please feel free to open an issue or create a pull request.
